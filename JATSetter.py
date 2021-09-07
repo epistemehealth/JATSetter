@@ -168,7 +168,7 @@ def aboutJATSetter():
     It is free open source software available under a GPL 3+ license.
 
     Cite this software:
-    Khoo, S.Y.-S. (2021). JATSetter. doi: 10.35430/JATSetter
+    Khoo, S.Y.-S. (2021). JATSetter.
 
     Contact the Author:
     Shaun Yon-Seng Khoo
