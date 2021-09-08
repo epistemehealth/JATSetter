@@ -61,7 +61,6 @@ def getFromAPI(APIToken, journalurl, locale, submissionid, outputfile):
     authorlist.append('authors = [\n')
     
     for i in jsondata["authors"]:
-        affils = ''
         authstring = '{'
         if len(i["familyName"][locale]) > 0:
             authstring = authstring + 'surname = "' + i["familyName"][locale] + '", '
@@ -74,7 +73,7 @@ def getFromAPI(APIToken, journalurl, locale, submissionid, outputfile):
 ##        if len(i["email"]) > 0:
 ##            authstring = authstring + 'email = "' + i["email"] + '", '
         if i["id"] == jsondata["primaryContactId"]:
-            authstring = authstring = 'corresp = "' + i["email"] + '", '
+            authstring = authstring + 'corresp = "' + i["email"] + '", '
         else:
             authstring = authstring + 'corresp = "no", '
         authstring = authstring + 'equalcontrib = "no", '
@@ -144,19 +143,25 @@ def getFromAPI(APIToken, journalurl, locale, submissionid, outputfile):
 
     ## Funding
     toml = toml + ']\n\n'
-    toml = toml + 'funding = [\n  {fundref = "", ROR = "", funder = "", awardtype = "", receipient = 1},\n]\n\n'
+    toml = toml + 'funding = [\n  {fundref = "", ROR = "", funder = "", awardtype = "", recipient = 1},\n]\n\n'
 
     ## Article History
     ## Note that OJS API does not record revision request date and resubmission dates, so only template information is output here
     toml = toml + 'history = [{event = "submission", date = "' + submissiondate[:10] + '"},\n'
     toml = toml + '  {event = "revisionrequest", date = ""},\n  {event = "revisionreceived", date = ""},\n  {event = "accept", date = ""},\n]\n\n'
-    toml = toml + 'date = "' + publishdate + '"\n\n'
+    if publishdate != None:
+        toml = toml + 'date = "' + publishdate + '"\n\n'
+    else:
+        toml = toml + 'date = ""\n\n'
 
     ## Article Identifiers
     toml = toml + '## Article identifiers\n'
     if 'e' in pages:
         toml = toml + 'articleID = "' + '"\n'
-    toml = toml + 'DOI = "' + doi + '"\n'
+    if doi != None:
+        toml = toml + 'DOI = "' + doi + '"\n'
+    else:
+        toml = toml + 'DOI = ""\n'
     toml = toml + 'volume = "' + str(volume) + '"\n'
     if issuenumber != None:
         toml = toml + 'issue = "' + str(issuenumber) + '"\n'
@@ -198,7 +203,10 @@ def getFromAPI(APIToken, journalurl, locale, submissionid, outputfile):
     toml = toml + ']\n\n'
 
     ## License information
-    toml = toml + 'license = "' + licenseurl + '"\n\n'
+    if licenseurl != None:
+        toml = toml + 'license = "' + licenseurl + '"\n\n'
+    else:
+        toml = toml + 'license = ""\n\n'
 
     ## Article abstract
     toml = toml + 'abstract = "' + abstract + '"\n\n'
