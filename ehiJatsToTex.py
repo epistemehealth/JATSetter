@@ -13,7 +13,7 @@ from lxml import etree
 
 def texify(text):
     #Define a dictionary of characters that need to be converted to LaTeX code
-    texdict = {'&':'\\&', '%':'\\%', '$':'\\$', '#':'\\#', '_':'\\_',
+    texdict = {'&amp;':'\\&','&':'\\&', '%':'\\%', '$':'\\$', '#':'\\#', '_':'\\_',
                '{':'\\{', '}':'\\}', '~':'\\textasciitilde{}',
                '^':'\\textasciicircum{}',
 
