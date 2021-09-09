@@ -143,7 +143,7 @@ def getFromAPI(APIToken, journalurl, locale, submissionid, outputfile):
 
     ## Funding
     toml = toml + ']\n\n'
-    toml = toml + 'funding = [\n  {fundref = "", ROR = "", funder = "", awardtype = "", recipient = 1},\n]\n\n'
+    toml = toml + 'funding = [\n  {fundref = "", ROR = "", funder = "", awardtype = "", awardid = "", recipient = 1},\n]\n\n'
 
     ## Article History
     ## Note that OJS API does not record revision request date and resubmission dates, so only template information is output here
@@ -186,7 +186,7 @@ def getFromAPI(APIToken, journalurl, locale, submissionid, outputfile):
             toml = toml + 'EPUBcanonical = "' + canonicalurl + '/' + str(galleyids[i]) + '"\n'
 
     ## Output types for Hugo
-    toml = toml + '\noutputs - ["html", '
+    toml = toml + '\noutputs = ["html", '
     for i in galleytypes:
         if 'pdf' in i.lower():
             toml = toml + '"galleyPDF", '
