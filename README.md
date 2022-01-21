@@ -29,6 +29,15 @@ JATSetter is written with the following workflow in mind:
 - JATSetter will try to handle special characters and symbols properly when converting between LaTeX and JATS XML, but this is not 100%.
 - JATSetter relies on XSLT 1.0 for transforming from JATS XML to other formats. Since it was developed for Neuroanatomy and Behaviour, the XSLT included is for this journal, but the python code is generic so any journal can adapt this software for their uses.
 
+## Required Packages
+
+In addition to base packages like tkinter and re, the following packages are required to run from source:
+
+- lxml
+- datetime
+- dateutils
+- requests
+
 ## License
 
 JATSetter is free and open source software. Like the Open Journal Systems software that we rely on, JATSetter is licensed under GPL version 3.
