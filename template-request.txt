@@ -1,0 +1,4 @@
+apitoken = 'Your API Key here'
+journalurl = 'https://journalurl.tld/journalpath'
+locale = 'en_US'
+submissionid = '1'

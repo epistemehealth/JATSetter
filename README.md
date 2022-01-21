@@ -7,7 +7,7 @@ A repository for a simple program for transforming between JATS XML and LaTeX.
 JATSetter provides the following conversion support functions:
 
 1. Convert a reference list from .bib to JATS XML
-2. Fetch metadata from the [Open Journal Systems](https://pkp.sfu.ca/ojs/) API and save it in a markdown file as TOML
+2. Fetch metadata from the [Open Journal Systems](https://pkp.sfu.ca/ojs/) API and save it in a markdown file as TOML. The fetch metadata function takes input from a text file (see template-request.txt).
 3. Combine one JATS XML file containing article frontmatter and body with a JATS XML file containing the reference list
 4. Convert a JATS XML file into a .tex file (uses XSLT)
 5. Convert a JATS XML reference list into a .bib file (uses XSLT)
